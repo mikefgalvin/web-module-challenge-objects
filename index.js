@@ -181,9 +181,17 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating(array, x) {
+   const newArr = [];
+      for(let i = 0; i < array.length; i++){
+        if(Math.floor(array[i].rating) === x){
+          newArr.push(array[i]);
+      }
+    }
+    return newArr;
   }
+    console.log('stretch 1', getReviewByRating(reviews, 4));
+// getReviewByRating(reviews, 4);
 
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
@@ -199,10 +207,17 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(array) {
+    let newArray = [];
+    for(let i = 0; i < array.length; i++){
+      if(array[i].feedback.split(" ").length > 14){
+        console.log(true);
+        newArray.push(array[i]);
+      }
+    }
+    return newArray;
   }
-  
+    console.log('stretch 2', getLongReviews(reviews));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
 This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
@@ -221,12 +236,29 @@ Use the carMaker function below to do the following:
   It would return 110 because it was created with 10 as the odometer and we added 100 to it with the drive method 
 */
 
+// 1. receive a value repping the odometer
 
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMaker(odo) {
+  const car1 = {
+      year: '2020',
+      make: 'Ford',
+      model: 'Mustang',
+      color: 'red',
+      odometer: odo,
+      drive: function(miles){
+          if(miles > 0){
+            return this.odometer + miles;
+          }
+    }
+  }
+  let mileage = car1.drive(100);
+  console.log('two', mileage);
+  return car1;
 }
 
+console.log('one',carMaker(1000));
+
+  // console.log(carMaker())
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
